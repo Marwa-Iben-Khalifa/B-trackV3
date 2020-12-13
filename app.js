@@ -81,16 +81,16 @@ app.use((req, res, next) => {
 // After routes: static server || React SPA
 //
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'client/build')));
 
-// route not-found => could be a React route => render the SPA
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'), function (err) {
-    if (err) {
-      next(err)
-    }
-  })
-});
+// // route not-found => could be a React route => render the SPA
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, 'client/build/index.html'), function (err) {
+//     if (err) {
+//       next(err)
+//     }
+//   })
+// });
 
 
 app.use((err, req, res, next) => {
