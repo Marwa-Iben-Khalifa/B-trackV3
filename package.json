@@ -1,0 +1,38 @@
+{
+  "name": "b-trackv3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "node ./bin/www",
+    "dev": "DEBUG=b-trackv3:* nodemon --ignore client ./bin/www",
+    "dev-windows": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.23.0",
+    "connect-ensure-login": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.7.0",
+    "hbs": "^4.0.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.2.10",
+    "morgan": "^1.9.0",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "node-sass-middleware": "^0.11.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
