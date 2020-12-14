@@ -72,21 +72,6 @@ export default class Signup extends Component {
     this.setState({firstname: "",lastname: "" , service: "", role: "", email: "" , password: "" , confirmPassword: "", imageURL:"https://res.cloudinary.com/dshuazgaz/image/upload/v1602411437/avatar_el8zal.webp", errorMessage:[]})
   }
 
-  handleFormSubmit= (event)=>{
-    event.preventDefault();
-    const {status, severity, solution}= this.state;
-    const { params } = this.props.match;
-    srv.srv.post(`/solution/${params.id}`, {status, severity, solution})
-      .then(() => {
-        this.setState({show:false, status: "", severity: "", solution: "",errorMessage:[], });
-        this.getBugFromApi() 
-        // this.props.history.push(`/bug-details/${params.id}`);
-        console.log('hello', this.state)
-      })
-      .catch((error)=> this.setState({errorMessage:error.response.data.message}))
-
-  }
-
   showContainer = () => {
     return(
       <div>
