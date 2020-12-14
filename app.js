@@ -10,9 +10,8 @@ const path         = require('path');
 
 const session       = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-
 mongoose
-  .connect(`'mongodb://localhost/b-trackv3' || ${process.env.DB_CONNECTION}`, 
+  .connect(`${'mongodb://localhost/b-trackv3' || process.env.DB_CONNECTION}`, 
   {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
