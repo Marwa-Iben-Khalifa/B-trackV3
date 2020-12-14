@@ -36,7 +36,8 @@ export default class Signup extends Component {
     event.preventDefault();
 
     srv.signup(this.state.firstname, this.state.lastname, this.state.service, this.state.role, this.state.email, this.state.password, this.state.confirmPassword, this.state.imageURL)
-    .then((response) => {      
+    .then((response) => {  
+      console.log('apiURL', srv.srv)    
       // 2. then, update with user infos
       // srv.edit(this.state.firstname, this.state.lastname, this.state.service, this.state.role, this.state.password, this.state.confirmPassword, this.state.imageURL)
       // .then(response => {
