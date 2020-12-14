@@ -14,7 +14,8 @@ import UserProfil from './component/auth/User-profil'
 
 export default class App extends Component {
   state = {
-    user: {}
+    user: {},
+    listOfServices:[]
   }
 
   fetchUser = () => {
@@ -27,6 +28,16 @@ export default class App extends Component {
       console.log('user already in the state')
     }
   };
+  
+  getAllServices = () =>{
+    srv.serviceList()
+    .then(response => {
+      console.log("services list", response)
+      this.setState({
+        listOfServices: response
+      })
+    })
+  }
 
   updateUser = (data) => {
     this.setState({user: data});
@@ -34,6 +45,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.fetchUser();
+    this.getAllServices();
   }
 
   render() {
@@ -51,7 +63,7 @@ export default class App extends Component {
             )} />
 
             <Route exact path="/signup" render={(props) => (
-              <Signup  updateUser={this.updateUser} history={props.history} />
+              <Signup listOfServices={this.state.listOfServices}  updateUser={this.updateUser} history={props.history} />
             )} />
 
             <Route exact path="/login" render={(props) => (

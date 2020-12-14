@@ -15,22 +15,22 @@ export default class Signup extends Component {
     confirmPassword: "",
     imageURL:"https://res.cloudinary.com/dshuazgaz/image/upload/v1602411437/avatar_el8zal.webp",
     errorMessage:[],
-    listOfServices:null
+    listOfServices:[...this.props.listOfServices]
   };
 
-  componentDidMount() {
-    this.getAllServices();
-  }
+  // componentDidMount() {
+  //   this.getAllServices();
+  // }
   
-  getAllServices = () =>{
-    srv.serviceList()
-    .then(response => {
-      console.log("services list", response)
-      this.setState({
-        listOfServices: response
-      })
-    })
-  }
+  // getAllServices = () =>{
+  //   srv.serviceList()
+  //   .then(response => {
+  //     console.log("services list", response)
+  //     this.setState({
+  //       listOfServices: response
+  //     })
+  //   })
+  // }
   
   handleFormSubmit = (event) => {
     event.preventDefault();
