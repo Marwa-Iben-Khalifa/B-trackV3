@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { response } from 'express';
 
 
 const errorHandler = err => {
@@ -46,13 +45,14 @@ export default{
       .catch(errorHandler);
   },
 
-  edit(firstname, lastname, service, role, passwordHash, imageURL) {
+  edit(firstname, lastname, service, role, password, confirmPassword, imageURL) {
     return this.srv.post('/edit', {
       firstname, 
       lastname, 
       service, 
       role, 
-      passwordHash,
+      password,
+      confirmPassword,
       imageURL
     })
       .then(response => response.data)

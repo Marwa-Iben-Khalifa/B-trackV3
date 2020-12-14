@@ -51,15 +51,18 @@ router.post('/new-service', [
 
 // route de suppression des services
 router.get('/delete-service/:id', (req, res, next) => {
+  // Check user is logged in
+  console.log("req.user avant deleate:", req.user)
+  if (!req.user) {
+    console.log("req.user:", req.user)
+    res.status(401).json({message: ["You need to be logged in to remove services"]});
+    return;
+  }
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: ['Specified id is not valid'] });
     return;
   }
-  // Check user is logged in
-  if (!req.user) {
-    res.status(401).json({message: ["You need to be logged in to edit your profile"]});
-    return;
-  }
+  
   Service.findByIdAndDelete(req.params.id)
     .then(() => {
       res.json({ message: `Service with ${req.params.id} is removed successfully.` });
@@ -80,9 +83,10 @@ router.put('/service/:id', [
 ], async (req, res, next) => {
   // Check user is logged in
   if (!req.user) {
-    res.status(401).json({message: ["You need to be logged in to edit your profile"]});
+    res.status(401).json({message: ["You need to be logged in to edit Services"]});
     return;
   }
+  console.log("req.user:", req.user)
   const { name, phone, email } = req.body;
   const validationErrors = validationResult(req);
   if (validationErrors.isEmpty()) {
