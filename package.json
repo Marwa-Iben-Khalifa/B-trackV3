@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "npm bin/seeds.js cd client && npm install && npm run build ",
+    "build": "cd client && npm install && npm run build ",
     "start": "node ./bin/www",
     "dev": "DEBUG=b-trackv3:* nodemon --ignore client ./bin/www",
     "dev-windows": "nodemon ./bin/www"
