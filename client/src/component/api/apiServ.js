@@ -5,7 +5,7 @@ const errorHandler = err => {
   throw err;
 };
 let srv=axios.create({
-  baseURL: `${process.env.REACT_APP_APIURL || ""}`, 
+  baseURL: `${process.env.REACT_APP_APIURL || "/api"}`, 
   withCredentials:true
 })
 

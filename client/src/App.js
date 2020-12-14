@@ -32,6 +32,10 @@ export default class App extends Component {
   getAllServices = () =>{
     srv.serviceList()
     .then(response => {
+      console.log(response);
+      if (!response) {
+        console.log("getAllServices > pas de response")
+      }
       console.log('apiURL', srv.srv)
       console.log("services list", response)
       this.setState({
