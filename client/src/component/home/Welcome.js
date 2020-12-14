@@ -14,7 +14,7 @@ export default class Welcome extends Component {
     {this.props.user._id && <Redirect to="/dashboard" user={this.props.user}/>}
 
     return (
-      <div style={{marginBottom:"60px", height:"100%"}}>
+      <div style={{marginBottom:"60px", height:"100%", textAlign: "center"}}>
         <Navbar  user={this.props.user}/>
         <Jumbotron fluid className="mb-5">
           <Container fluid>            
