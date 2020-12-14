@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom';
-import { Button, Modal, Form, FormGroup, Row, Alert } from 'react-bootstrap';
+import { Button, Modal, Form, FormGroup, Row, Alert, Spinner } from 'react-bootstrap';
 import srv from'../api/apiServ'
 
 
@@ -72,7 +72,40 @@ export default class Signup extends Component {
     this.setState({firstname: "",lastname: "" , service: "", role: "", email: "" , password: "" , confirmPassword: "", imageURL:"https://res.cloudinary.com/dshuazgaz/image/upload/v1602411437/avatar_el8zal.webp", errorMessage:[]})
   }
 
+  handleFormSubmit= (event)=>{
+    event.preventDefault();
+    const {status, severity, solution}= this.state;
+    const { params } = this.props.match;
+    srv.srv.post(`/solution/${params.id}`, {status, severity, solution})
+      .then(() => {
+        this.setState({show:false, status: "", severity: "", solution: "",errorMessage:[], });
+        this.getBugFromApi() 
+        // this.props.history.push(`/bug-details/${params.id}`);
+        console.log('hello', this.state)
+      })
+      .catch((error)=> this.setState({errorMessage:error.response.data.message}))
+
+  }
+
+  showContainer = () => {
+    return(
+      <div>
+        <Button variant="primary" disabled>
+          <Spinner
+            as="span"
+            animation="grow"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          />
+          Loading...
+        </Button>
+      </div>
+    )
+  }
+
   render() {
+    if(this.state.listOfServices.length===0) return this.showContainer()
     return (
       <Modal className="modal fade" id="orangeModalSubscription" tabIndex="-1" role="dialog" show={true} style={{backgroundColor:"#515ea261"}} >
         <Form className="modal-content form-elegant container-fluid " onSubmit={this.handleFormSubmit} onReset={this.handleReset}> 
