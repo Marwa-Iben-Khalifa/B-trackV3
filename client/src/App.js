@@ -39,7 +39,7 @@ export default class App extends Component {
   render() {
     return (
       <Route render={props => (
-        <div className="App" data-route={props.location.pathname} style= {{background: "#3f51b50d" }}> {/* data-route="/" allow us to style pages */}
+        <div className="App"  style= {{background: "#3f51b50d" }}> {/* data-route="/" allow us to style pages */}
 
           <Switch>
             <Route exact path="/" render={(props) => (
@@ -51,7 +51,7 @@ export default class App extends Component {
             )} />
 
             <Route exact path="/signup" render={(props) => (
-              <Signup updateUser={this.updateUser} history={props.history} />
+              <Signup  updateUser={this.updateUser} history={props.history} />
             )} />
 
             <Route exact path="/login" render={(props) => (
@@ -59,7 +59,7 @@ export default class App extends Component {
             )} />
 
             <Route exact path="/services" render={(props) => (
-              <CRUDServices user={this.state.user} updateUser={this.updateUser} history={props.history}/>
+              <CRUDServices user={this.state.user} updateUser={this.updateUser} history={props.history} />
             )} />
 
             <Route exact path="/new-bug" render={(props) => (
@@ -75,12 +75,8 @@ export default class App extends Component {
             )} />
 
             <Route exact path="/profil" render={(props) => (
-              <UserProfil user={this.state.user}  history={props.history} {...props} updateUser={this.updateUser}/>
+              <UserProfil user={this.state.user}  history={props.history}  updateUser={this.updateUser}/>
             )} />
-
-            {/* <Route exact path="/profile" render={(props) => (
-              <Profile user={this.state.user} updateUser={this.updateUser} history={props.history} />
-            )} /> */}
 
             {/* last route, ie: 404 */}
             <Route render={() => (<h1>Not Found</h1>)} />

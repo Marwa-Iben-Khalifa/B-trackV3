@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Button, ButtonToolbar, Container,Jumbotron } from 'react-bootstrap';
 import { Link, Redirect } from 'react-router-dom';
-import Dashboard from './Dashboard'
 import Details from './Details'
 import Navbar from '../navs/Navbar'
 import Footer from '../navs/Footer'
@@ -11,7 +10,7 @@ export default class Welcome extends Component {
 
   render() {
     // console.log(this.props.user)      
-    {this.props.user._id && <Redirect to="/dashboard" user={this.props.user}/>}
+    // {this.props.user._id && <Redirect to="/dashboard" user={this.props.user}/>}
 
     return (
       <div style={{marginBottom:"60px", height:"100%", textAlign: "center"}}>

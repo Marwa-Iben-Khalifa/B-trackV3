@@ -149,65 +149,6 @@ router.post("/edit", (req, res, next) => {
 
 });
 
-// reoute.put('/users)
-// router.put('/profil',[
-//   check('firstname').isLength({ min: 3 }).withMessage('Firstname must have at least 3 chars'),
-//   check('lastname').isLength({ min: 3 }).withMessage('Lastname must have at least 3 chars')
-// ], (req, res, next) => {
-//   // Check user is logged in
-//   if (!req.user) {
-//     res.status(401).json({message: ["You need to be logged in to edit your profile"]});
-//     return;
-//   }
-//   console.log('user:', req.user)
-//   const validationErrors = validationResult(req);
-//   if (!validationErrors.isEmpty()) {
-//     return res.status(400).json({message: validationErrors.errors.map(e => e.msg)})
-//   } else {
-//     const { firstname, lastname, service, role, imageURL } = req.body;
-//     User
-//       .findByIdAndUpdate(req.user._id, { firstname, lastname, service, role, imageURL}, { new: true })
-//       .populate('service')
-//       .then(newUser => {
-//         res.status(200).json(newUser);
-//       })
-//       .catch(err => {
-//         console.log(err)
-//         res.status(500).json({ message: ['Saving user to database went wrong.'] });
-//       })
-//   }
-// })
-
-// router.put('/profil-password',[
-//   check('password')
-//     .isLength({ min: 8 }).withMessage('password must be at least 8 chars long.')
-//     .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/).withMessage('Password must contain at least a number, an uppercase and a lowercase')
-// ], (req, res, next) => {
-//   // Check user is logged in
-//   if (!req.user) {
-//     res.status(401).json({message: "You need to be logged in to edit your profile"});
-//     return;
-//   }
-
-//   const validationErrors = validationResult(req);
-
-//   if (req.body.password != req.body.confirmPassword) {
-//     res.status(400).json({message:['password and confirm password fields are not identical.']})
-//   }
-//   if (!validationErrors.isEmpty()) {
-//     res.status(400).json({message:validationErrors.errors.map(e => e.msg) })
-//   } else {
-//     const passwordHash = bcrypt.hashSync(req.body.password, 10);
-//     User.findByIdAndUpdate(req.user._id, { passwordHash }, { upsert: true })
-//       .then(userFromDb => res.status(200).json({userFromDb}))
-//       .catch(err => {
-//         console.log(err)
-//         res.status(500).json({ message: 'Saving user to database went wrong.' })
-//       });
-//   }
-// })
-
-
 
 module.exports = router;
 

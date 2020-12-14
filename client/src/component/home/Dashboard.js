@@ -10,7 +10,7 @@ import {Pie, Doughnut, Polar} from 'react-chartjs-2';
 
 export default class Dashboard extends Component {
   state={
-    user:null,
+    // user:null,
     priorityBugs:[],
     dataByStatus:{labels: [],
                   datasets: [
@@ -39,12 +39,12 @@ export default class Dashboard extends Component {
     this.getPriorityBugs();
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if (!prevProps.user._id && this.props.user._id) {
-      console.log ('componentDidUpdate', this.props.user)
-      this.setState({user:{...this.props.user}})
-    } 
-  }
+  // componentDidUpdate(prevProps, prevState){
+  //   if (!prevProps.user._id && this.props.user._id) {
+  //     console.log ('componentDidUpdate', this.props.user)
+  //     this.setState({user:{...this.props.user}})
+  //   } 
+  // }
 
   getPriorityBugs = () =>{
     srv.srv.get(`/priority`)
@@ -99,27 +99,28 @@ export default class Dashboard extends Component {
 
   
 
-  showContainer = () => {
-    return(
-      <div>
-        <Button variant="primary" disabled>
-          <Spinner
-            as="span"
-            animation="grow"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Loading...
-        </Button>
-      </div>
-    )
-  }
+  // showContainer = () => {
+  //   return(
+  //     <div>
+  //       <Button variant="primary" disabled>
+  //         <Spinner
+  //           as="span"
+  //           animation="grow"
+  //           size="sm"
+  //           role="status"
+  //           aria-hidden="true"
+  //         />
+  //         Loading...
+  //       </Button>
+  //     </div>
+  //   )
+  // }
 
   render() {
     // if (this.state.dataByStatus.labels.length === 0 || this.state.dataByStatus.labels.length === 0 || this.state.priorityBugs=== null) return this.showContainer()
+    // if (this.props.user === {} &&  this.state.user === null) return <Redirect to="/"/>
     // if (this.state.user === null) return this.showContainer()
-    // if (this.state.user === false) return <Redirect to="/"/>
+    
     console.log("State", this.state)
     return (
       <Container fluid >

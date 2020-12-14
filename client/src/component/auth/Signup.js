@@ -15,7 +15,7 @@ export default class Signup extends Component {
     confirmPassword: "",
     imageURL:"https://res.cloudinary.com/dshuazgaz/image/upload/v1602411437/avatar_el8zal.webp",
     errorMessage:[],
-    listOfServices:[]
+    listOfServices:null
   };
 
   componentDidMount() {
@@ -36,17 +36,17 @@ export default class Signup extends Component {
     event.preventDefault();
 
     srv.signup(this.state.firstname, this.state.lastname, this.state.service, this.state.role, this.state.email, this.state.password, this.state.confirmPassword, this.state.imageURL)
-    .then(() => {      
+    .then((response) => {      
       // 2. then, update with user infos
-      srv.edit(this.state.firstname, this.state.lastname, this.state.service, this.state.role, this.state.password, this.state.confirmPassword, this.state.imageURL)
-      .then(response => {
+      // srv.edit(this.state.firstname, this.state.lastname, this.state.service, this.state.role, this.state.password, this.state.confirmPassword, this.state.imageURL)
+      // .then(response => {
         this.setState({firstname: "", lastname: "" , service: "", role: "", email: "" , password: "" , confirmPassword: "", imageURL:"https://res.cloudinary.com/dshuazgaz/image/upload/v1602411437/avatar_el8zal.webp", errorMessage:[] });
         console.log('user', response)
         this.props.updateUser(response);
         this.props.history.push('/dashboard');        
-      })
-      .catch((error)=> this.setState({errorMessage:error.response.data.message}))
-  })
+      // })
+      // .catch((error)=> this.setState({errorMessage:error.response.data.message}))
+    })
     .catch((error)=> this.setState({errorMessage:error.response.data.message}))
   }
 
@@ -90,7 +90,8 @@ export default class Signup extends Component {
   }
 
   render() {
-    if(this.state.listOfServices.length===0) return this.showContainer()
+    if(!this.state.listOfServices) return this.showContainer()
+    // if(this.props.user._id) return <Redirect to="/dashboard"/>
     return (
       <Modal className="modal fade" id="orangeModalSubscription" tabIndex="-1" role="dialog" show={true} style={{backgroundColor:"#515ea261"}} >
         <Form className="modal-content form-elegant container-fluid " onSubmit={this.handleFormSubmit} onReset={this.handleReset}> 

@@ -104,7 +104,7 @@ export default class userProfil extends Component {
 
   render(){
     if (!this.props.user._id) return this.showContainer()
-    if (this.state.user === false) return <Redirect to="/"/>
+    // if (this.state.user === false) return <Redirect to="/"/>
     return (
       <Container fluid>
         <Navbar user={this.props.user} updateUser={this.props.updateUser} history={this.props.history}/>

@@ -18,26 +18,6 @@ export default class NavBar extends Component {
     ;
   }
 
-  // showContainer = () => {
-  //   return(
-  //     <div>
-  //       <Button variant="primary" disabled>
-  //         <Spinner
-  //           as="span"
-  //           animation="grow"
-  //           size="sm"
-  //           role="status"
-  //           aria-hidden="true"
-  //         />
-  //         Loading...
-  //       </Button>
-  //     </div>
-  //   )
-  // }
-
-  
-
-
   render() {
     return (
       <>

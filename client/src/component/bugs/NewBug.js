@@ -11,7 +11,7 @@ import { Button, Form, Row, Alert , Col, Container, FormControl, Spinner} from '
 
 export default class NewBug extends Component {
   state={
-    user:null,
+    // user:null,
     title:"",
     description:"",
     solution:"",
@@ -22,12 +22,12 @@ export default class NewBug extends Component {
     errorMessage:[]  
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if (!prevProps.user._id && this.props.user._id) {
-      console.log ('componentDidUpdate', this.props.user)
-      this.setState({user:{...this.props.user}})
-    } 
-  }
+  // componentDidUpdate(prevProps, prevState){
+  //   if (!prevProps.user._id && this.props.user._id) {
+  //     console.log ('componentDidUpdate', this.props.user)
+  //     this.setState({user:{...this.props.user}})
+  //   } 
+  // }
 
   componentDidMount() {
     this.getAllServices();
@@ -71,26 +71,26 @@ export default class NewBug extends Component {
     this.setState({title:"", description:"", solution:"", services: [], status:"", severity:"", errorMessage:[]  })
   }
 
-  showContainer = () => {
-    return(
-      <div>
-        <Button variant="primary" disabled>
-          <Spinner
-            as="span"
-            animation="grow"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Loading...
-        </Button>
-      </div>
-    )
-  }
+  // showContainer = () => {
+  //   return(
+  //     <div>
+  //       <Button variant="primary" disabled>
+  //         <Spinner
+  //           as="span"
+  //           animation="grow"
+  //           size="sm"
+  //           role="status"
+  //           aria-hidden="true"
+  //         />
+  //         Loading...
+  //       </Button>
+  //     </div>
+  //   )
+  // }
 
   render() {
-    if (this.state.user === null) return this.showContainer()
-    if (this.state.user === false) return <Redirect to="/"/>
+    // if (this.state.user === null) return this.showContainer()
+    // if (this.state.user === false) return <Redirect to="/"/>
     return (
       <Container fluid>
         <Navbar user={this.props.user} updateUser={this.props.updateUser} history={this.props.history}/>
