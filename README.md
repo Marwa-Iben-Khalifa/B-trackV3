@@ -1,4 +1,45 @@
+https://res.cloudinary.com/dshuazgaz/image/upload/v1608063066/image_btrack_V2_es03bu.png
+
 # B-trackV3
+
+Full-Stack React Project
+
+For the final project at the Ironhack bootcamp, we created a single-page web application named "B-Track" using the MERN stack (MongoDB, Express, React & Node.js). Our B-Track website is a concrete, easy-to-use application that allows your company to save wasting time in reporting bugs or any issues in a simple and relevant way.
+
+This application (back & front) is hosted on Heroku.
+
+Demo 🖥
+Try it!
+
+You can test the website, either by creating a new account as a company or by requesting to register as an employee using the form provided and choosing your company.
+
+Stack 💪
+Frontend :
+
+React
+React-router-dom
+React-bootstrap
+react-vertical-timeline-component
+Axios
+Bootstrap
+
+Backend :
+
+NodeJS
+Express
+Mongoose
+Cors
+Dotenv
+Bcrypt
+express-validator
+express-async-errors
+passport
+
+Contact 📡
+
+Find me on Linkedin : https://www.linkedin.com/in/marwa-iben-khalifa-4599a2153/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
